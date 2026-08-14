@@ -106,7 +106,7 @@ export const InstagramSection: React.FC<InstagramSectionProps> = ({ onSelectPost
                 <BrandStrokes size="sm" color="#8B5A3C" />
               </div>
               <p className="text-xs font-mono text-tappinoBrown-500 font-semibold mt-0.5">
-                {brandConfig.instagram.bioLine1} • {brandConfig.instagram.bioLine2}
+                {brandConfig.tagline} • {brandConfig.fullLocationDisplay}
               </p>
             </div>
           </div>

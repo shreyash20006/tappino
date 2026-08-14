@@ -1,14 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Send, ArrowRight } from 'lucide-react';
 import { brandConfig } from '../config/brand';
 import { BrandStrokes } from '../components/ui/BrandStrokes';
+import { InstagramIcon } from '../components/ui/InstagramIcon';
 
-interface SignatureShowcaseProps {
-  onOpenOrderModal: () => void;
-}
-
-export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({ onOpenOrderModal }) => {
+export const SignatureShowcase: React.FC = () => {
   return (
     <section
       id="signature"
@@ -27,7 +23,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({ onOpenOrde
             className="inline-flex items-center gap-2 rounded-full border border-maroon-800/20 bg-cream-50 px-4 py-1.5 text-xs font-mono font-bold text-maroon-800 mb-4 shadow-warm-sm"
           >
             <BrandStrokes size="sm" color="#8B5A3C" />
-            <span>HERO SHOWCASE</span>
+            <span>SIGNATURE COLD BREW</span>
           </motion.div>
 
           <motion.h2
@@ -92,31 +88,28 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({ onOpenOrde
             <div className="relative w-full rounded-3xl overflow-hidden border border-maroon-800/15 bg-white shadow-warm-lg p-2.5">
               <img
                 src="/images/products/signature_pour.jpg"
-                alt="Tappino Cold Coffee Pour"
+                alt="Tappino Signature Cold Coffee Pour"
                 className="w-full h-[480px] object-cover rounded-2xl transition-transform duration-700 group-hover:scale-105"
               />
 
-              {/* Overlay Badge */}
+              {/* Overlay Label */}
               <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-cream-50/95 p-4 border border-maroon-800/15 backdrop-blur-md shadow-warm-md">
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="flex items-center gap-1.5">
                       <BrandStrokes size="sm" color="#8B5A3C" />
                       <span className="text-[10px] font-mono uppercase tracking-widest text-tappinoBrown-500 font-bold">
-                        Iconic Recipe
+                        Signature Recipe
                       </span>
                     </div>
                     <h4 className="font-heading text-xl font-bold text-maroon-800 mt-0.5">
-                      Cold Coffee
+                      Tappino Cold Coffee
                     </h4>
                   </div>
-                  <span className="font-mono font-bold text-maroon-800 text-sm bg-maroon-800/10 px-2.5 py-1 rounded-xl border border-maroon-800/20">
-                    {brandConfig.startingPrice}
-                  </span>
                 </div>
 
                 <div className="mt-3 flex flex-wrap gap-1.5">
-                  {['Velvet Swirl', 'Sub-Zero', 'Double Shot'].map((note) => (
+                  {['Velvet Espresso', 'Frosted Cold', 'Bold Roast'].map((note) => (
                     <span
                       key={note}
                       className="rounded-lg bg-cream-200/80 px-2.5 py-0.5 text-[10px] font-mono font-semibold text-espresso-800"
@@ -162,27 +155,18 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({ onOpenOrde
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 text-center"
+          className="mt-14 flex items-center justify-center text-center"
         >
           <a
             href={brandConfig.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-2xl bg-maroon-800 hover:bg-maroon-900 px-8 py-4 text-sm font-bold font-display uppercase tracking-wider text-cream-50 shadow-maroon-md transition-all hover:scale-105"
+            className="inline-flex items-center gap-2.5 rounded-2xl bg-maroon-800 hover:bg-maroon-900 px-8 py-4 text-sm font-bold font-display uppercase tracking-wider text-cream-50 shadow-maroon-md transition-all hover:scale-105"
             data-cursor="hover"
           >
-            <Send className="h-4 w-4 text-cream-100" />
-            <span>Order Cold Coffee on Instagram</span>
+            <InstagramIcon className="h-4 w-4 text-cream-100" />
+            <span>Order on Instagram @officialtappino</span>
           </a>
-
-          <button
-            onClick={onOpenOrderModal}
-            className="inline-flex items-center gap-2 rounded-2xl border-2 border-maroon-800 bg-cream-50 px-7 py-4 text-sm font-display font-bold text-maroon-800 hover:bg-maroon-800 hover:text-cream-50 transition-all shadow-warm-sm"
-            data-cursor="hover"
-          >
-            <span>Customize Sweetness & Ice</span>
-            <ArrowRight className="h-4 w-4" />
-          </button>
         </motion.div>
       </div>
     </section>

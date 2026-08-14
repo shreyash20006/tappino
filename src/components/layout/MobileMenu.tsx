@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MapPin, Sparkles } from 'lucide-react';
+import { X, MapPin } from 'lucide-react';
 import { brandConfig } from '../../config/brand';
 import { InstagramIcon } from '../ui/InstagramIcon';
 import { TappinoLogo } from '../ui/TappinoLogo';
@@ -8,21 +8,16 @@ import { TappinoLogo } from '../ui/TappinoLogo';
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  onOpenOrderModal: () => void;
 }
 
-export const MobileMenu: React.FC<MobileMenuProps> = ({
-  isOpen,
-  onClose,
-  onOpenOrderModal,
-}) => {
+export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const navLinks = [
     { label: 'Home', href: '#hero' },
     { label: 'Signature', href: '#signature' },
-    { label: 'Menu & Prices', href: '#menu' },
-    { label: 'Our Story', href: '#story' },
-    { label: 'Instagram Feed', href: '#instagram' },
-    { label: 'Nagpur Location', href: '#location' },
+    { label: 'Menu', href: '#menu' },
+    { label: 'Story', href: '#story' },
+    { label: 'Instagram', href: '#instagram' },
+    { label: 'Location', href: '#location' },
   ];
 
   return (
@@ -47,7 +42,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
             </button>
           </div>
 
-          {/* Navigation Links with Staggered Entrance */}
+          {/* Navigation Links */}
           <div className="flex flex-col space-y-4 py-6">
             {navLinks.map((link, idx) => (
               <motion.a
@@ -65,34 +60,22 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({
             ))}
           </div>
 
-          {/* Bottom Actions */}
+          {/* Bottom CTA */}
           <div className="space-y-4 border-t border-maroon-800/10 pt-6">
             <div className="flex items-center gap-2 text-xs font-mono text-tappinoBrown-600 font-medium">
               <MapPin className="h-3.5 w-3.5 text-maroon-800" />
               <span>{brandConfig.fullLocationDisplay}</span>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                onClick={() => {
-                  onClose();
-                  onOpenOrderModal();
-                }}
-                className="flex items-center justify-center gap-2 rounded-xl border border-maroon-800/30 bg-cream-100 py-3 text-xs font-bold text-maroon-800 hover:bg-cream-200 transition-colors"
-              >
-                <Sparkles className="h-4 w-4" />
-                Customize Cup
-              </button>
-              <a
-                href={brandConfig.instagram.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-xl bg-maroon-800 hover:bg-maroon-900 py-3 text-xs font-bold text-cream-50 shadow-maroon-sm"
-              >
-                <InstagramIcon className="h-4 w-4 text-cream-100" />
-                Order on IG
-              </a>
-            </div>
+            <a
+              href={brandConfig.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 rounded-2xl bg-maroon-800 hover:bg-maroon-900 py-4 text-xs font-bold font-display uppercase tracking-wider text-cream-50 shadow-maroon-sm"
+            >
+              <InstagramIcon className="h-4 w-4 text-cream-100" />
+              <span>Order on Instagram</span>
+            </a>
 
             <p className="text-center font-script font-bold text-base text-tappinoBrown-500 tracking-wide">
               {brandConfig.tagline}

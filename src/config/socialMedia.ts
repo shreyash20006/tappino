@@ -25,7 +25,7 @@ export const socialMediaAssets: SocialMediaAsset[] = [
     posterUrl: 'https://res.cloudinary.com/dsqxboxoc/video/upload/so_1,q_auto,w_600/v1786688506/officialtappino_14050523_114955418_denvp0.jpg',
     title: 'Signature Espresso Swirl',
     creator: 'officialtappino',
-    caption: 'Double espresso extraction poured slow over chilled whole milk with rich microfoam crema. Starting @ ₹39! 🧋✨',
+    caption: 'Double espresso extraction poured slow over chilled whole milk with rich microfoam crema. Sip. Chill. Repeat. 🧋✨',
     likes: '3,150',
     tag: '#FreshEspresso',
     date: 'Recent',

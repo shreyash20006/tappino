@@ -13,36 +13,16 @@ import { BrandStory } from './sections/BrandStory';
 import { InstagramSection } from './sections/InstagramSection';
 import { LocationSection } from './sections/LocationSection';
 import { CTASection } from './sections/CTASection';
-import { CustomOrderModal } from './components/modals/CustomOrderModal';
 import { PostModal } from './components/modals/PostModal';
-import { useSoundEffects } from './hooks/useSoundEffects';
-import type { Product, InstagramPost } from './types';
-import { products } from './config/brand';
+import type { InstagramPost } from './types';
 
 export function App() {
   const [loading, setLoading] = useState<boolean>(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [orderModalOpen, setOrderModalOpen] = useState<boolean>(false);
   const [selectedPost, setSelectedPost] = useState<InstagramPost | null>(null);
   const [postModalOpen, setPostModalOpen] = useState<boolean>(false);
 
-  const { isPlaying, toggleAmbientSound, playClick } = useSoundEffects();
-
-  const handleOpenOrderModal = (product?: Product) => {
-    playClick();
-    setSelectedProduct(product || products[0]);
-    setOrderModalOpen(true);
-  };
-
-  const handleSelectProduct = (product: Product) => {
-    playClick();
-    setSelectedProduct(product);
-    setOrderModalOpen(true);
-  };
-
   const handleSelectPost = (post: InstagramPost) => {
-    playClick();
     setSelectedPost(post);
     setPostModalOpen(true);
   };
@@ -61,33 +41,27 @@ export function App() {
       {/* Main App Layout */}
       <div className="relative z-10 flex flex-col min-h-screen">
         {/* Navigation Bar */}
-        <Navbar
-          isPlayingSound={isPlaying}
-          onToggleSound={toggleAmbientSound}
-          onOpenMobileMenu={() => setMobileMenuOpen(true)}
-          onOpenOrderModal={() => handleOpenOrderModal()}
-        />
+        <Navbar onOpenMobileMenu={() => setMobileMenuOpen(true)} />
 
         {/* Full-Screen Mobile Drawer */}
         <MobileMenu
           isOpen={mobileMenuOpen}
           onClose={() => setMobileMenuOpen(false)}
-          onOpenOrderModal={() => handleOpenOrderModal()}
         />
 
-        {/* Hero Section with 3D Tilt Product */}
-        <HeroSection onOpenOrderModal={() => handleOpenOrderModal()} />
+        {/* Hero Section */}
+        <HeroSection />
 
         {/* Signature Hero Cold Coffee Spotlight */}
-        <SignatureShowcase onOpenOrderModal={() => handleOpenOrderModal()} />
+        <SignatureShowcase />
 
         {/* The Tappino Menu */}
-        <MenuSection onSelectProduct={handleSelectProduct} />
+        <MenuSection />
 
         {/* Signature Full-Width Dramatic Maroon Section: Sip. Chill. Repeat. */}
         <KineticStory />
 
-        {/* Brand Story & Nagpur Culture */}
+        {/* Brand Story with Supplied Real Cloudinary Video */}
         <BrandStory />
 
         {/* Instagram Feed & Spotlight */}
@@ -97,19 +71,13 @@ export function App() {
         <LocationSection />
 
         {/* Climax Conversion CTA */}
-        <CTASection onOpenOrderModal={() => handleOpenOrderModal()} />
+        <CTASection />
 
         {/* Minimal Luxury Maroon Footer */}
-        <Footer onOpenOrderModal={() => handleOpenOrderModal()} />
+        <Footer />
       </div>
 
-      {/* Interactive Modals */}
-      <CustomOrderModal
-        product={selectedProduct}
-        isOpen={orderModalOpen}
-        onClose={() => setOrderModalOpen(false)}
-      />
-
+      {/* Interactive Instagram Post Modal */}
       <PostModal
         post={selectedPost}
         isOpen={postModalOpen}
