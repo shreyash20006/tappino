@@ -7,7 +7,7 @@ export const KineticStory: React.FC = () => {
     {
       word: 'SIP.',
       subtitle: 'The Fresh Espresso Extraction',
-      description: 'Single-origin espresso pulled slow. Rich velvety crema hitting ice-cold whole milk with deep cocoa notes.',
+      description: 'Single-origin espresso pulled slow. Rich velvety crema hitting ice-cold milk with deep cocoa notes.',
       number: '01',
       bgImage: '/images/products/signature_pour.jpg',
     },
@@ -21,7 +21,7 @@ export const KineticStory: React.FC = () => {
     {
       word: 'REPEAT.',
       subtitle: 'The Daily Nagpur Ritual',
-      description: 'From morning coding sprints in IT Park to late-night crew hangs. Pure coffee obsession in every single cup.',
+      description: 'From morning sprints in IT Park to evening crew hangs. Pure coffee obsession in every single cup.',
       number: '03',
       bgImage: '/images/gallery/insta_lifestyle.jpg',
     },
@@ -40,8 +40,14 @@ export const KineticStory: React.FC = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[650px] rounded-full bg-maroon-600/15 blur-[140px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Pill */}
-        <div className="text-center mb-16">
+        {/* Section Pill with Scroll Fade */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-16"
+        >
           <div className="inline-flex items-center gap-2 rounded-full border border-cream-200/20 bg-maroon-950/60 px-4 py-1.5 text-xs font-mono font-semibold text-cream-200 mb-3 backdrop-blur-md">
             <BrandStrokes size="sm" color="#E5D3C2" />
             <span>THE TAPPINO RITUAL</span>
@@ -52,17 +58,17 @@ export const KineticStory: React.FC = () => {
           <p className="font-script text-2xl sm:text-3xl text-tappinoBrown-200 font-bold mt-2">
             Sip. Chill. Repeat. <span className="text-rose-400">❤️</span>
           </p>
-        </div>
+        </motion.div>
 
-        {/* 3 Sequential Kinetic Cards */}
+        {/* 3 Sequential Kinetic Cards with Scroll Fade */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {steps.map((step, idx) => (
             <motion.div
               key={step.word}
-              initial={{ opacity: 0, y: 35 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15 * idx, duration: 0.6 }}
+              initial={{ opacity: 0, y: 40, scale: 0.96 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: false, amount: 0.15 }}
+              transition={{ delay: 0.12 * idx, duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
               className="group relative overflow-hidden rounded-3xl border border-cream-200/15 bg-maroon-950/70 p-8 shadow-2xl backdrop-blur-md flex flex-col justify-between min-h-[460px] hover:border-cream-200/35 hover:bg-maroon-950/85 transition-all duration-500"
             >
               {/* Subtle Ambient Background Image with Dark Maroon Overlay */}

@@ -52,12 +52,12 @@ export const BrandStory: React.FC = () => {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left: Real Cloudinary Video with Natural Responsive Frame */}
+          {/* Left: Real Cloudinary Video with Scroll Fade */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -35, y: 20 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-6 relative flex items-center justify-center"
           >
             <div
@@ -78,12 +78,12 @@ export const BrandStory: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Text Content (Clean without fake stats or founding claims) */}
+          {/* Right Text Content with Scroll Fade */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: 35, y: 20 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-6 space-y-6"
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-maroon-800/20 bg-cream-50 px-3.5 py-1 text-xs font-mono font-bold text-maroon-800 shadow-warm-sm">

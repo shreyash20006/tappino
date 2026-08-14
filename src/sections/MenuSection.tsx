@@ -34,8 +34,14 @@ export const MenuSection: React.FC = () => {
       <div className="absolute top-1/3 left-0 h-96 w-96 rounded-full bg-maroon-800/5 blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        {/* Section Header with Scroll Fade */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
+        >
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-maroon-800/20 bg-cream-100 px-3.5 py-1 text-xs font-mono font-bold text-maroon-800 mb-3 shadow-warm-sm">
               <BrandStrokes size="sm" color="#8B5A3C" />
@@ -66,22 +72,27 @@ export const MenuSection: React.FC = () => {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Product Cards Grid: 12 Real Cloudinary Assets in Strict Order */}
+        {/* Product Cards Grid: 12 Real Cloudinary Assets with Staggered Scroll Fade */}
         <motion.div
           layout
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6"
         >
           <AnimatePresence>
-            {filteredItems.map((item: MenuItem) => (
+            {filteredItems.map((item: MenuItem, index: number) => (
               <motion.div
                 layout
                 key={item.id}
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.35 }}
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                viewport={{ once: false, amount: 0.1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: (index % 4) * 0.08,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-maroon-800/12 bg-white p-4 sm:p-5 shadow-warm-sm hover:border-maroon-800/35 hover:shadow-warm-lg transition-all duration-300"
                 data-cursor="hover"
               >
@@ -143,8 +154,14 @@ export const MenuSection: React.FC = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Bottom Banner */}
-        <div className="mt-14 rounded-3xl border border-maroon-800/15 bg-gradient-to-r from-cream-100 via-cream-50 to-cream-100 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-warm-md">
+        {/* Bottom Banner with Scroll Fade */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="mt-14 rounded-3xl border border-maroon-800/15 bg-gradient-to-r from-cream-100 via-cream-50 to-cream-100 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-warm-md"
+        >
           <div className="text-center sm:text-left">
             <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
               <BrandStrokes size="sm" color="#8B5A3C" />
@@ -166,7 +183,7 @@ export const MenuSection: React.FC = () => {
             <Send className="h-4 w-4 text-cream-100" />
             <span>Connect on Instagram</span>
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

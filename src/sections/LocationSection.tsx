@@ -16,12 +16,18 @@ export const LocationSection: React.FC = () => {
   return (
     <section
       id="location"
-      className="relative z-10 w-full bg-cream-100 py-24 sm:py-32 border-t border-maroon-800/10 text-espresso-900"
+      className="relative z-10 w-full bg-cream-100 py-24 sm:py-32 border-t border-maroon-800/10 text-espresso-900 overflow-hidden"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Column: Clean Location Info */}
-          <div className="lg:col-span-5 space-y-6">
+          {/* Left Column: Clean Location Info with Scroll Fade */}
+          <motion.div
+            initial={{ opacity: 0, x: -35, y: 20 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 space-y-6"
+          >
             <div className="inline-flex items-center gap-2 rounded-full border border-maroon-800/20 bg-cream-50 px-3.5 py-1 text-xs font-mono font-bold text-maroon-800 shadow-warm-sm">
               <MapPin className="h-3.5 w-3.5 text-maroon-800" />
               <span>NAGPUR LOCATION</span>
@@ -75,14 +81,14 @@ export const LocationSection: React.FC = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Google Maps Container */}
+          {/* Right Column: Google Maps Container with Scroll Fade */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-7 relative"
           >
             <div className="relative overflow-hidden rounded-3xl border border-maroon-800/15 bg-white shadow-warm-lg h-[400px] sm:h-[460px]">

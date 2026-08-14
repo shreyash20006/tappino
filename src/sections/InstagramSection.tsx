@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import { brandConfig } from '../config/brand';
 import { socialMediaAssets } from '../config/socialMedia';
@@ -26,8 +27,14 @@ export const InstagramSection: React.FC<InstagramSectionProps> = ({ onSelectPost
       <div className="absolute top-1/2 right-0 h-96 w-96 rounded-full bg-maroon-800/5 blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        {/* Section Header with Scroll Fade */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14"
+        >
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-maroon-800/20 bg-cream-100 px-3.5 py-1 text-xs font-mono font-bold text-maroon-800 mb-3 shadow-warm-sm">
               <InstagramIcon className="h-3.5 w-3.5 text-maroon-800" />
@@ -61,7 +68,7 @@ export const InstagramSection: React.FC<InstagramSectionProps> = ({ onSelectPost
             <span>Follow @officialtappino</span>
             <ExternalLink className="h-3.5 w-3.5 ml-1 text-cream-200" />
           </a>
-        </div>
+        </motion.div>
 
         {/* Editorial Masonry Gallery */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -92,8 +99,14 @@ export const InstagramSection: React.FC<InstagramSectionProps> = ({ onSelectPost
           </div>
         </div>
 
-        {/* Bottom Instagram Profile CTA Banner */}
-        <div className="mt-14 rounded-3xl border border-maroon-800/15 bg-gradient-to-r from-cream-100 via-cream-50 to-cream-100 p-6 sm:p-8 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-6 shadow-warm-md">
+        {/* Bottom Instagram Profile CTA Banner with Scroll Fade */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="mt-14 rounded-3xl border border-maroon-800/15 bg-gradient-to-r from-cream-100 via-cream-50 to-cream-100 p-6 sm:p-8 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-6 shadow-warm-md"
+        >
           <div className="flex items-center gap-4">
             <div className="h-14 w-14 rounded-2xl bg-maroon-800 p-1 shadow-maroon-sm flex items-center justify-center flex-shrink-0">
               <span className="font-heading text-3xl font-bold text-cream-50">T</span>
@@ -132,7 +145,7 @@ export const InstagramSection: React.FC<InstagramSectionProps> = ({ onSelectPost
               <span>Visit Instagram →</span>
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

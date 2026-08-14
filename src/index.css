@@ -33,6 +33,7 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: var(--tappino-cream-warm);
     color: var(--tappino-espresso);
+    scroll-behavior: smooth;
   }
 
   /* Custom Smooth Scrollbar */

@@ -14,39 +14,28 @@ export const SignatureShowcase: React.FC = () => {
       <div className="absolute top-1/3 right-10 h-96 w-96 rounded-full bg-maroon-800/5 blur-[100px] pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 rounded-full border border-maroon-800/20 bg-cream-50 px-4 py-1.5 text-xs font-mono font-bold text-maroon-800 mb-4 shadow-warm-sm"
-          >
+        {/* Section Header with Scroll Fade */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div className="inline-flex items-center gap-2 rounded-full border border-maroon-800/20 bg-cream-50 px-4 py-1.5 text-xs font-mono font-bold text-maroon-800 mb-4 shadow-warm-sm">
             <BrandStrokes size="sm" color="#8B5A3C" />
             <span>SIGNATURE COLD BREW</span>
-          </motion.div>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-heading text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-maroon-800 leading-[0.95]"
-          >
+          <h2 className="font-heading text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-maroon-800 leading-[0.95]">
             MEET YOUR NEW <br />
             <span className="text-gradient-maroon">COLD OBSESSION.</span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-4 text-base sm:text-lg text-espresso-800 font-sans"
-          >
+          <p className="mt-4 text-base sm:text-lg text-espresso-800 font-sans">
             Engineered for pure coffee satisfaction. No overly-sweet syrups hiding low-grade beans. Just honest, bold espresso extraction blended with ice-cold richness.
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
 
         {/* Feature Presentation Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -55,10 +44,10 @@ export const SignatureShowcase: React.FC = () => {
             {brandConfig.features.slice(0, 2).map((feat, idx) => (
               <motion.div
                 key={feat.title}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * idx, duration: 0.5 }}
+                initial={{ opacity: 0, x: -30, y: 15 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ delay: 0.1 * idx, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="glass-cream glass-cream-hover rounded-3xl p-6 sm:p-7 shadow-warm-sm group"
               >
                 <div className="flex items-center justify-between">
@@ -77,12 +66,12 @@ export const SignatureShowcase: React.FC = () => {
             ))}
           </div>
 
-          {/* Center Column: Massive Visual Stage */}
+          {/* Center Column: Massive Visual Stage with Scroll Fade */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-4 relative flex items-center justify-center group"
           >
             <div className="relative w-full rounded-3xl overflow-hidden border border-maroon-800/15 bg-white shadow-warm-lg p-2.5">
@@ -127,10 +116,10 @@ export const SignatureShowcase: React.FC = () => {
             {brandConfig.features.slice(2, 4).map((feat, idx) => (
               <motion.div
                 key={feat.title}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * idx, duration: 0.5 }}
+                initial={{ opacity: 0, x: 30, y: 15 }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ delay: 0.1 * idx, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="glass-cream glass-cream-hover rounded-3xl p-6 sm:p-7 shadow-warm-sm group"
               >
                 <div className="flex items-center justify-between">
@@ -150,11 +139,12 @@ export const SignatureShowcase: React.FC = () => {
           </div>
         </div>
 
-        {/* Action Callout */}
+        {/* Action Callout with Scroll Fade */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
           className="mt-14 flex items-center justify-center text-center"
         >
           <a

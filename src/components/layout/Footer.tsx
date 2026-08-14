@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { MapPin, ArrowUp, Heart } from 'lucide-react';
 import { brandConfig } from '../../config/brand';
 import { InstagramIcon } from '../ui/InstagramIcon';
@@ -10,10 +11,16 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative z-10 border-t border-cream-200/10 bg-maroon-950 pt-16 pb-12 text-cream-100 shadow-2xl">
+    <footer className="relative z-10 border-t border-cream-200/10 bg-maroon-950 pt-16 pb-12 text-cream-100 shadow-2xl overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-cream-200/15">
+        {/* Top Grid with Scroll Fade */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-cream-200/15"
+        >
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-4">
             <TappinoLogo variant="light" size="md" showTagline={true} />
@@ -89,10 +96,16 @@ export const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-cream-200/70">
+        {/* Bottom Bar with Scroll Fade */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-cream-200/70"
+        >
           <p>© {new Date().getFullYear()} Tappino. All rights reserved.</p>
 
           <div className="flex items-center gap-1.5 font-sans">
@@ -110,7 +123,7 @@ export const Footer: React.FC = () => {
             <span>Back to top</span>
             <ArrowUp className="h-3.5 w-3.5" />
           </button>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
