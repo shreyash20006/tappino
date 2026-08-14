@@ -1,0 +1,129 @@
+import React from 'react';
+import { MapPin, Sparkles, ArrowUp, Heart } from 'lucide-react';
+import { brandConfig } from '../../config/brand';
+import { InstagramIcon } from '../ui/InstagramIcon';
+import { TappinoLogo } from '../ui/TappinoLogo';
+
+interface FooterProps {
+  onOpenOrderModal: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onOpenOrderModal }) => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <footer className="relative z-10 border-t border-cream-200/10 bg-maroon-950 pt-16 pb-12 text-cream-100 shadow-2xl">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Top Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-cream-200/15">
+          {/* Brand Info */}
+          <div className="md:col-span-5 space-y-4">
+            <TappinoLogo variant="light" size="md" showTagline={true} />
+
+            <p className="text-sm text-cream-200/85 max-w-sm leading-relaxed font-sans pt-1">
+              Freshly brewed premium cold coffee & artisan hot brews crafted in IT Park, Nagpur. Experience rich taste and sub-zero chilled perfection starting at ₹39.
+            </p>
+
+            <div className="pt-2 flex items-center gap-2 text-xs font-mono text-tappinoBrown-200 font-medium">
+              <MapPin className="h-4 w-4 text-cream-200" />
+              <span>{brandConfig.fullLocationDisplay}, India</span>
+            </div>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-tappinoBrown-200 font-bold">
+              Navigation
+            </h4>
+            <ul className="space-y-2.5 text-sm font-display font-medium">
+              <li>
+                <a href="#hero" className="text-cream-200 hover:text-white transition-colors">
+                  01. Home Overview
+                </a>
+              </li>
+              <li>
+                <a href="#signature" className="text-cream-200 hover:text-white transition-colors">
+                  02. Signature Cold Coffee
+                </a>
+              </li>
+              <li>
+                <a href="#menu" className="text-cream-200 hover:text-white transition-colors">
+                  03. The Tappino Menu
+                </a>
+              </li>
+              <li>
+                <a href="#story" className="text-cream-200 hover:text-white transition-colors">
+                  04. Nagpur Brand Story
+                </a>
+              </li>
+              <li>
+                <a href="#instagram" className="text-cream-200 hover:text-white transition-colors">
+                  05. Instagram Highlights
+                </a>
+              </li>
+              <li>
+                <a href="#location" className="text-cream-200 hover:text-white transition-colors">
+                  06. IT Park Location & Map
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Connect & Instagram */}
+          <div className="md:col-span-4 space-y-4">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-tappinoBrown-200 font-bold">
+              Connect & Orders
+            </h4>
+            <p className="text-xs text-cream-200/85 leading-relaxed">
+              We take orders, group bookings, college event brews, and café collaborations directly on Instagram DM.
+            </p>
+
+            <div className="flex flex-col gap-2.5">
+              <a
+                href={brandConfig.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-cream-50 hover:bg-white px-5 py-3 text-xs font-bold font-display uppercase tracking-wider text-maroon-900 shadow-lg transition-transform hover:scale-[1.02]"
+                data-cursor="hover"
+              >
+                <InstagramIcon className="h-4 w-4 text-maroon-900" />
+                Follow @officialtappino
+              </a>
+              <button
+                onClick={onOpenOrderModal}
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-cream-200/30 bg-maroon-900/60 px-5 py-3 text-xs font-mono font-bold text-cream-100 hover:bg-cream-50 hover:text-maroon-900 transition-all"
+                data-cursor="hover"
+              >
+                <Sparkles className="h-4 w-4" />
+                Custom Brew Generator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-cream-200/70">
+          <p>© {new Date().getFullYear()} Tappino Coffee. All rights reserved.</p>
+
+          <div className="flex items-center gap-1.5 font-sans">
+            <span>Crafted with</span>
+            <Heart className="h-3.5 w-3.5 text-rose-400 fill-rose-400 inline" />
+            <span>for Nagpur Coffee Lovers</span>
+          </div>
+
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 text-cream-200 hover:text-white transition-colors"
+            aria-label="Scroll to top"
+            data-cursor="hover"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="h-3.5 w-3.5" />
+          </button>
+        </div>
+      </div>
+    </footer>
+  );
+};
