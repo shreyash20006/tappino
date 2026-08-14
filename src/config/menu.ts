@@ -1,18 +1,128 @@
 import type { MenuItem } from '../types';
 
 /**
- * Tappino Menu Configuration
- * 
- * When real menu data is available, populate the array below.
- * Example structure:
- * {
- *   id: 'signature-cold-coffee',
- *   name: 'Signature Cold Coffee',
- *   description: 'Rich espresso blended with cold milk and velvety microfoam.',
- *   price: '₹59',
- *   image: '/images/products/hero_cold_coffee.jpg',
- *   category: 'Cold Coffee',
- *   available: true
- * }
+ * Tappino Menu Items
+ * Sourced directly from authentic Cloudinary assets in exact requested order.
  */
-export const menuItems: MenuItem[] = [];
+export const menuItems: MenuItem[] = [
+  {
+    id: 'menu-asset-01',
+    order: 1,
+    name: 'Hot Vanilla',
+    price: '₹59',
+    category: 'Hot Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694200/996C11A2-1177-4E1F-8D5B-D4B7F426B8EC-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_3_gvozbl.jpg',
+    description: 'Freshly pulled espresso with smooth vanilla notes and velvety steamed microfoam.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-02',
+    order: 2,
+    name: 'Iced Black',
+    price: '₹49',
+    category: 'Cold Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694200/6E8910C1-3F5B-4F91-BCA3-367797A316BB-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_16_xv9y1j.jpg',
+    description: 'Pure bold espresso poured over crystal ice for an intense, crisp coffee kick.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-03',
+    order: 3,
+    name: 'Iced Caramel',
+    price: '₹69',
+    category: 'Cold Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694200/5A0EAAE7-D334-4083-90B5-7978AB33EB9D-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_15_df9qe0.jpg',
+    description: 'Chilled espresso blended with rich milk and layered with golden buttery caramel.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-04',
+    order: 4,
+    name: 'Hot Caramel',
+    price: '₹69',
+    category: 'Hot Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694201/6168F7DF-365A-4F3E-B5DA-BD48914D7C1D-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_12_kebcek.jpg',
+    description: 'Steaming hot espresso topped with silky milk foam and signature caramel drizzle.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-05',
+    order: 5,
+    name: 'Filter Coffee',
+    price: '₹29',
+    category: 'Hot Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694201/9EAE1619-1CBC-458D-948B-DB1443D9AF18-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_17_srd6lj.jpg',
+    description: 'Traditional slow-filtered decoction blended with hot frothed milk.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-06',
+    order: 6,
+    name: 'Iced Vanilla',
+    price: '₹59',
+    category: 'Cold Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694201/8DAD0619-CC6A-41D7-8E6B-D8A7F602139A-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_19_tu4zzk.jpg',
+    description: 'Smooth iced espresso with aromatic vanilla sweetness and cold textured milk.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-07',
+    order: 7,
+    name: 'Hot Black Coffee',
+    price: '₹29',
+    category: 'Hot Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694201/8BC9F58F-5C5A-4346-AF16-E716E3EE42F4-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_18_ehd9is.jpg',
+    description: 'Freshly brewed single-origin hot black coffee with robust, deep roasted body.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-08',
+    order: 8,
+    name: 'C.C. Special',
+    price: '₹69',
+    category: 'Special',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694202/FD06E3C5-84AF-4D35-AC75-328BB5A17D07-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_20_zcjp2l.jpg',
+    description: 'Signature cold brew bottle infused with decadent chocolate swirls and chilled pearls.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-09',
+    order: 9,
+    name: 'CCC',
+    price: '₹39',
+    category: 'Cold Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694203/DD1AFD76-495C-48ED-B6AA-406051C80F82-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_14_bhzkle.jpg',
+    description: 'Classic Chilled Coffee with rich chocolate swirl lines and chocolate sprinkle topping.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-10',
+    order: 10,
+    name: 'Iced Mocha',
+    price: '₹69',
+    category: 'Cold Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694203/262A3625-A920-4D72-BF86-9A9D734CB76C-8E76BDF7-6868-434A-AAB9-1CB3F0307FC3_13_a4grji.jpg',
+    description: 'Dark cocoa ganache paired with rich double espresso over chilled ice milk.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-11',
+    order: 11,
+    name: 'CCC Special Pour',
+    price: '₹39',
+    category: 'Cold Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694204/478B940E-61E7-4816-AB88-16198F772384-IMG_3136_buqkyk.jpg',
+    description: 'Tappino signature classic cold coffee crowned with chocolate shavings.',
+    available: true,
+  },
+  {
+    id: 'menu-asset-12',
+    order: 12,
+    name: 'C.C. Crush',
+    price: '₹49',
+    category: 'Cold Coffee',
+    image: 'https://res.cloudinary.com/dsqxboxoc/image/upload/v1786694204/9956E1B8-5AE6-4C83-8415-8D6369573F27-IMG_3136_2_gnpr6l.jpg',
+    description: 'Crushed frosted espresso with thick chocolate chips and velvety cold froth.',
+    available: true,
+  },
+];

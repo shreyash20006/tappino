@@ -1,10 +1,11 @@
 export interface MenuItem {
   id: string;
   name: string;
-  description: string;
-  price?: string;
-  image?: string;
-  category?: string;
+  price: string;
+  image: string;
+  category: string;
+  order: number;
+  description?: string;
   available?: boolean;
 }
 
